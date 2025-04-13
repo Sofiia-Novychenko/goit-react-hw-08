@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.text {
+  font-weight: 600;
+}
+.input {
+  border: 1px solid #212121;
+  border-radius: 8px;
+  max-width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: transparent;
+  transition: border 0.2s ease;
+}
+
+.input:focus {
+  border-color: #007bff;
+  outline: none;
+}

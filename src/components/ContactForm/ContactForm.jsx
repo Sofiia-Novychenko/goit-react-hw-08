@@ -29,7 +29,9 @@ export default function ContactForm() {
       .then(() => {
         toast.success('Contact added!');
       })
-      .catch();
+      .catch(() => {
+        toast.error('Failed to add contact');
+      });
 
     actions.resetForm();
   };

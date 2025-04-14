@@ -29,12 +29,12 @@ export default function App() {
     <p className={styles.refreshMessage}>Refreshing user, please wait...</p>
   ) : (
     <div className={styles.app}>
-      <Suspense fallback={<p>Loading...</p>}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
+      <Layout>
+        <Suspense fallback={<p>Loading...</p>}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
             <Route
-              path="register"
+              path="/register"
               element={
                 <RestrictedRoute
                   redirectTo="/contacts"
@@ -44,7 +44,7 @@ export default function App() {
             />
 
             <Route
-              path="login"
+              path="/login"
               element={
                 <RestrictedRoute
                   redirectTo="/contacts"
@@ -54,7 +54,7 @@ export default function App() {
             />
 
             <Route
-              path="contacts"
+              path="/contacts"
               element={
                 <PrivateRoute
                   redirectTo="/login"
@@ -62,9 +62,9 @@ export default function App() {
                 />
               }
             />
-          </Route>
-        </Routes>
-      </Suspense>
+          </Routes>
+        </Suspense>
+      </Layout>
     </div>
   );
 }

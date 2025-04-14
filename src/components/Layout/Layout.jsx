@@ -1,13 +1,11 @@
 import { Outlet } from 'react-router-dom';
 import AppBar from '../AppBar/AppBar';
 
-export default function Layout() {
+export default function Layout({ children }) {
   return (
     <>
       <AppBar />
-      <main>
-        <Outlet />
-      </main>
+      <main>{children}</main>
     </>
   );
 }

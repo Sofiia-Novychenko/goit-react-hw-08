@@ -2,10 +2,10 @@ import { Route, Routes } from 'react-router-dom';
 import styles from './App.module.css';
 import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { selectIsRefreshing } from '../../redux/auth/selectors';
+import { selectIsRefreshing } from '../../redux/auth/selectors';
 import RestrictedRoute from '../RestrictedRoute/RestrictedRoute';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
-// import { refreshUser } from '../../redux/auth/operations';
+import { refreshUser } from '../../redux/auth/operations';
 import Layout from '../Layout/Layout';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
@@ -19,17 +19,15 @@ const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'));
 
 export default function App() {
   const dispatch = useDispatch();
-  // const isRefreshing = useSelector(selectIsRefreshing);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  // }, []);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
-  // isRefreshing ? (
-  //   <p>Refreshing user...</p>
-  // ) :
-
-  return (
+  return isRefreshing ? (
+    <p className={styles.refreshMessage}>Refreshing user, please wait...</p>
+  ) : (
     <div className={styles.app}>
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>

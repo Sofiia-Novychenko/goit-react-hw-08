@@ -11,3 +11,10 @@
   justify-content: center;
   align-items: center;
 }
+.noResults {
+  text-align: center;
+  color: #888;
+  font-size: 18px;
+  margin-top: 20px;
+  font-style: italic;
+}

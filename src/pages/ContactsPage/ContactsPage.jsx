@@ -25,11 +25,10 @@ export default function ContactsPage() {
 
   return (
     <div>
-      <h1>Your contacts</h1>
+      <h1>Your number of contacts: {contactsCount}</h1>
       <div className={styles.formAndSearchContainer}>
         <ContactForm />
         <SearchBox />
-        <p>Number of contacts: {contactsCount}</p>
       </div>
       {loading && !error && (
         <div className={styles.loaderContainer}>

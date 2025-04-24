@@ -4,6 +4,9 @@ import { selectFilter } from '../filters/selectors';
 export const selectContacts = state => state.contacts.items;
 export const selectLoading = state => state.contacts.loading;
 export const selectError = state => state.contacts.error;
+export const selectContactCount = createSelector([selectContacts], contacts => {
+  return contacts.length;
+});
 
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectFilter],
@@ -17,6 +20,3 @@ export const selectFilteredContacts = createSelector(
     );
   }
 );
-export const selectContactCount = createSelector([selectContacts], contacts => {
-  return contacts.length;
-});
